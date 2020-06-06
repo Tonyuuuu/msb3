@@ -30,9 +30,9 @@
         <module>shiro-springboot-cas-tmail-9005</module>
         <module>shiro-springboot-cas-pac4j-taobao-9006</module>
         <module>shiro-springboot-cas-pac4j-tmail-9007</module>
-		<module>shiro-springboot-jwt-9008</module>
-		<module>shiro-springboot-cas-pac4j-admin-9008</module>
 		<module>shiro-springboot-admin-9010</module>
+		<module>shiro-springboot-admin-jwt-9011</module>
+		<module>shiro-sprinboot-proxy</module>
 	</modules>
 
 
@@ -50,6 +50,7 @@
 		<java.jwt.version>3.2.0</java.jwt.version>
 		<joda.time.version>2.9.9</joda.time.version>
 		<pagehelper.version>1.2.5</pagehelper.version>
+		<jwt.version>3.10.3</jwt.version>
 	</properties>
 
 	<dependencyManagement>
@@ -57,6 +58,11 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-freemarker</artifactId>
+				<version>2.2.6.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-aop</artifactId>
 				<version>2.2.6.RELEASE</version>
 			</dependency>
 			<dependency>
@@ -180,6 +186,13 @@
 				<artifactId>pagehelper-spring-boot-starter</artifactId>
 				<version>${pagehelper.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${jwt.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

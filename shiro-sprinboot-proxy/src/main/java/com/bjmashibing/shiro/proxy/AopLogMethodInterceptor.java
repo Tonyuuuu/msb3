@@ -14,10 +14,10 @@ public class AopLogMethodInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         Method method = invocation.getThis().getClass().getDeclaredMethod(invocation.getMethod().getName(),invocation.getMethod().getParameterTypes());
-//        SysLog sysLog = method.getAnnotation(SysLog.class);
-//        System.out.println("log: "+sysLog);
-        System.out.println("======");
-        return invocation.proceed();
+        Object proceed = invocation.proceed();
+        System.out.println(invocation);
+        System.out.println("记录日志");
+        return proceed;
     }
 
 

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @author sunzhiqiang23
  * @date 2019/9/27 13:42
  */
-//@Configuration
+@Configuration
 public class AnnotationProcessorConfiguration {
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){

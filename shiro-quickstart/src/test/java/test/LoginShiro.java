@@ -20,6 +20,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p></p>
@@ -42,7 +45,6 @@ public class LoginShiro {
         Subject currentUser = SecurityUtils.getSubject();
         Session session = currentUser.getSession();
         session.setAttribute("key", "value");
-
         String key = (String) session.getAttribute("key");
         System.out.println("key 值：" + key);
 
@@ -51,9 +53,21 @@ public class LoginShiro {
             UsernamePasswordToken token = new UsernamePasswordToken("system", "system");
             try {
                 currentUser.login(token);
+
                 new Thread(() -> {
                     System.out.println("登陆成功，登录用户"+SecurityUtils.getSubject().getPrincipals());
                 }).start();
+
+//                ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10,
+//                        10L, TimeUnit.MILLISECONDS,
+//                        new LinkedBlockingQueue<Runnable>());
+//
+//                for (int i = 0; i < 10; i++) {
+//                    executor.execute(()->{
+//                        System.out.println(SecurityUtils.getSubject().getPrincipals());
+//                    });
+//                }
+
             } catch (UnknownAccountException uae) {
                 log.info("无此用户，用户名： " + token.getPrincipal());
             } catch (IncorrectCredentialsException ice) {

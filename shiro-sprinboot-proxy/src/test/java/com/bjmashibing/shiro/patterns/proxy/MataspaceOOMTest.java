@@ -1,4 +1,4 @@
-package com.bjmashibing.shiro.proxy;
+package com.bjmashibing.shiro.patterns.proxy;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;

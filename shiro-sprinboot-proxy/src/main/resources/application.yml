@@ -6,6 +6,8 @@ server:
         min-spare-threads: 30
     port: 80
 spring:
+    profiles:
+      active: db
     mvc:
       static-path-pattern: /static/**
     freemarker:

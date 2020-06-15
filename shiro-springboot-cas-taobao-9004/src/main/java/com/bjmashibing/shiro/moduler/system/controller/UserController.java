@@ -41,6 +41,7 @@ public class UserController {
         User user = ShiroUtils.getUser();
         ModelAndView mv = new ModelAndView("/user");
         mv.addObject("user", user);
+
         return mv;
     }
 

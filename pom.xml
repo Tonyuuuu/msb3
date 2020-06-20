@@ -33,7 +33,8 @@
 		<module>shiro-springboot-admin-9010</module>
 		<module>shiro-springboot-admin-jwt-9011</module>
 		<module>shiro-sprinboot-proxy</module>
-	</modules>
+        <module>shiro-serialization</module>
+    </modules>
 
 
 
